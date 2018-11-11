@@ -1,16 +1,23 @@
+export const ADD_PEEPS = 'ADD_PEEPS'
+export const REQUEST_PEEPS = 'REQUEST_PEEPS'
+export const CLEAR_PEEPS = 'CLEAR_PEEPS'
+
 export const addPeeps = peeps => ({
-  type: 'ADD_PEEPS',
+  type: ADD_PEEPS,
   isFetching: false,
   receivedAt: Date.now(),
   peeps,
 });
 
 export const requestPeeps = () => ({
-  type: 'REQUEST_PEEPS',
+  type: REQUEST_PEEPS,
   isFetching: true
 });
 
-export const clearPeeps = () => ({ type: 'CLEAR_PEEPS' });
+export const clearPeeps = () => ({
+  type: CLEAR_PEEPS,
+  isFetching: false
+});
 
 export function getPeeps() {
   return dispatch => {

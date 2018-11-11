@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
+import ChitterFeed from './ChitterFeed'
 
-export default class App extends Component {
+export default class App extends React.Component {
   componentDidMount() {
     this.updatePeepList();
   }
@@ -9,32 +10,21 @@ export default class App extends Component {
   clearPeepList = () => this.props.clearPeeps();
 
   render() {
-    console.log('PROPS')
-    console.log(this.props)
     return (
       <div>
         <h1>Chitter</h1>
 
-        <h2>Last updated at: {this.props.isFetching}</h2>
-
         <button onClick={() => this.updatePeepList()}>
           Refresh Feed
         </button>
+        {this.props.receivedAt ?
+          <h2>Last updated {new Date(this.props.receivedAt).toLocaleTimeString()}</h2>
+          : null
+        }
 
-        <button onClick={() => this.clearPeepList()}>
-          Clear Feed
-        </button>
-
-        {/* <ul>
-          {this.props.peeps.map((peep, index) => (
-            <li key={index}>
-              <p>
-                {peep.body} peeped by {peep.user.handle}
-              </p>
-            </li>
-          ))}
-        </ul> */}
-
+        {this.props.isFetching ? <h3>Loading Chitter Feed.</h3>:
+        <ChitterFeed peeps={this.props.peeps} />
+        }
       </div>
     );
   }

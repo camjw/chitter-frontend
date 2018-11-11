@@ -25,6 +25,7 @@
   "devDependencies": {
     "babel-polyfill": "^6.26.0",
     "cross-fetch": "^2.2.3",
+    "moment": "^2.22.2",
     "react-redux": "^5.1.0",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
