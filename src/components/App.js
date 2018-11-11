@@ -9,6 +9,7 @@ export default class App extends Component {
   clearPeepList = () => this.props.clearPeeps();
 
   render() {
+    console.log('PROPS')
     console.log(this.props)
     return (
       <div>
@@ -24,7 +25,7 @@ export default class App extends Component {
           Clear Feed
         </button>
 
-        <ul>
+        {/* <ul>
           {this.props.peeps.map((peep, index) => (
             <li key={index}>
               <p>
@@ -32,7 +33,7 @@ export default class App extends Component {
               </p>
             </li>
           ))}
-        </ul>
+        </ul> */}
 
       </div>
     );

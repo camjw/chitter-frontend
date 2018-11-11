@@ -1,18 +1,19 @@
 import { combineReducers } from 'redux';
 
-export const peeps = (state = [], action) => {
+export const reducePeeps = (state = [], action) => {
+  console.log(action.type)
   switch (action.type) {
     case 'ADD_PEEPS':
-      return action.peeps;
+      return { peeps: action.peeps, isFetching: action.isFetching };
     case 'CLEAR_PEEPS':
-      return [];
+      return { peeps: [], isFetching: action.isFetching };
     case 'REQUEST_PEEPS':
-      return [{body:'loading', user: {handle: 'loading'}}];
+      return { peeps: action.peeps, isFetching: action.isFetching };
     default:
       return state;
   }
 };
 
-const reducers = combineReducers({ peeps });
+const reducers = combineReducers({ reducePeeps });
 
 export default reducers
