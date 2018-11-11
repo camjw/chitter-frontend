@@ -1,5 +1,5 @@
 import React from 'react';
-import ChitterFeed from './ChitterFeed'
+import ChitterFeed from '../ChitterFeed'
 
 export default class App extends React.Component {
   componentDidMount() {

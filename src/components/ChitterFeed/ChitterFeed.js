@@ -1,13 +1,14 @@
 import React from 'react'
+import Peep from '../Peep'
 
 export default class ChitterFeed extends React.Component {
   render() {
-    console.log(this.props.peeps)
     return(
       <ul>
+        <hr/>
         {this.props.peeps.map((peep, index) => (
           <div key={index}>
-              {peep.body} peeped by {peep.user.handle}
+              <Peep peep={peep}/>
           </div>
         ))}
       </ul>
