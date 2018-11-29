@@ -12,13 +12,10 @@
     "build": "react-scripts build",
     "react_test": "react-scripts test",
     "eject": "react-scripts eject",
-    "test": "jest --coverage"
+    "test": "jest"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>__tests__/setup/setupEnzyme.js",
-    "testPathIgnorePatterns": [
-      "<rootDir>/__tests__/setup/"
-    ]
+    "setupFiles": ["<rootDir>/src/setupTests.js"]
   },
   "eslintConfig": {
     "extends": "react-app"

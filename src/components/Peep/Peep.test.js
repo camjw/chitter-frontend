@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme'
-import Peep from '../../../src/components/Peep'
+import Peep from './Peep'
 
 const peepWrapper = shallow(<Peep peep={ {body: 'Hello Jest'} } />)
 
