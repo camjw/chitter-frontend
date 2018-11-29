@@ -10,9 +10,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "react_test": "react-scripts test",
     "eject": "react-scripts eject",
-    "jest": "jest --coverage"
+    "test": "jest --coverage"
   },
   "eslintConfig": {
     "extends": "react-app"
