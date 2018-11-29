@@ -22,8 +22,8 @@ export default class App extends React.Component {
           : null
         }
 
-        {this.props.isFetching ? <h3>Loading Chitter Feed.</h3>:
-        <ChitterFeed peeps={this.props.peeps} />
+        {this.props.isFetching ? <h3>Loading Chitter Feed.</h3> :
+          <ChitterFeed peeps={this.props.peeps} />
         }
       </div>
     );
