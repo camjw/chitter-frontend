@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Peep #render renders some HTML 1`] = `"<div class=\\"container\\"><div class=\\"row\\">Hello Jest</div><div class=\\"row\\">Peeped by Test user a few seconds ago.</div><hr/><br/></div>"`;
+
+exports[`Peep renders some HTML 1`] = `"<div class=\\"container\\"><div class=\\"row\\">Hello Jest</div><div class=\\"row\\">Peeped by Test user a few seconds ago.</div><hr/><br/></div>"`;
