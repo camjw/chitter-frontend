@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import ChitterFeed from '../ChitterFeed';
 
 export default class App extends React.Component {
-  constructor() {
+  constructor(props) {
     super();
-    const { getPeeps, clearPeeps } = this.props;
+    const { getPeeps, clearPeeps } = props;
     this.updatePeepList = () => getPeeps();
     this.clearPeepList = () => clearPeeps();
   }
