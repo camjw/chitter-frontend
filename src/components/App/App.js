@@ -5,9 +5,8 @@ import ChitterFeed from '../ChitterFeed';
 export default class App extends React.Component {
   constructor(props) {
     super();
-    const { getPeeps, clearPeeps } = props;
+    const { getPeeps } = props;
     this.updatePeepList = () => getPeeps();
-    this.clearPeepList = () => clearPeeps();
   }
 
   componentDidMount() {
@@ -44,13 +43,12 @@ export default class App extends React.Component {
 
 App.propTypes = {
   getPeeps: PropTypes.func.isRequired,
-  clearPeeps: PropTypes.func.isRequired,
   isFetching: PropTypes.bool.isRequired,
-  receivedAt: PropTypes.bool,
+  receivedAt: PropTypes.instanceOf(Date),
   peeps: PropTypes.arrayOf(PropTypes.shape()),
 };
 
 App.defaultProps = {
-  receivedAt: false,
+  receivedAt: null,
   peeps: [],
 };

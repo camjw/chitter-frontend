@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App #render informs the user that peeps are being fetched if isFetching is true 1`] = `"<div><h1>Chitter</h1><button type=\\"submit\\">Refresh Feed</button><h3>Loading Chitter Feed.</h3></div>"`;
