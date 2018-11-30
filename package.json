@@ -12,7 +12,8 @@
     "build": "react-scripts build",
     "react_test": "react-scripts test",
     "eject": "react-scripts eject",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "lint": "./node_modules/.bin/eslint src"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -32,6 +33,11 @@
     "cross-fetch": "^2.2.3",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
     "jest": "^23.6.0",
     "jest-cli": "^23.6.0",
     "moment": "^2.22.2",
