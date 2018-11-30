@@ -1,3 +1,3 @@
-import reducePeeps from './reducePeeps'
+import reducePeeps from './reducePeeps';
 
-export default reducePeeps
+export default reducePeeps;

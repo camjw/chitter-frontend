@@ -1,3 +1,3 @@
-import Peep from './Peep'
+import Peep from './Peep';
 
-export default Peep
+export default Peep;

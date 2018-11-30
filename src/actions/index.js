@@ -1,6 +1,6 @@
-export const ADD_PEEPS = 'ADD_PEEPS'
-export const REQUEST_PEEPS = 'REQUEST_PEEPS'
-export const CLEAR_PEEPS = 'CLEAR_PEEPS'
+export const ADD_PEEPS = 'ADD_PEEPS';
+export const REQUEST_PEEPS = 'REQUEST_PEEPS';
+export const CLEAR_PEEPS = 'CLEAR_PEEPS';
 
 export const addPeeps = peeps => ({
   type: ADD_PEEPS,
@@ -11,19 +11,19 @@ export const addPeeps = peeps => ({
 
 export const requestPeeps = () => ({
   type: REQUEST_PEEPS,
-  isFetching: true
+  isFetching: true,
 });
 
 export const clearPeeps = () => ({
   type: CLEAR_PEEPS,
-  isFetching: false
+  isFetching: false,
 });
 
 export function getPeeps() {
-  return dispatch => {
-    dispatch(requestPeeps())
-    return fetch(`https://chitter-backend-api.herokuapp.com/peeps`)
+  return (dispatch) => {
+    dispatch(requestPeeps());
+    return fetch('https://chitter-backend-api.herokuapp.com/peeps')
       .then(response => response.json())
-      .then(json => dispatch(addPeeps(json)))
-  }
+      .then(json => dispatch(addPeeps(json)));
+  };
 }

@@ -1,3 +1,3 @@
-import ChitterFeed from './ChitterFeed'
+import ChitterFeed from './ChitterFeed';
 
-export default ChitterFeed
+export default ChitterFeed;

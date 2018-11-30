@@ -1,18 +1,24 @@
-import React from 'react'
-import moment from 'moment'
+import React from 'react';
+import moment from 'moment';
 
-export default class Peep extends React.Component {
-  render() {
-    return(
-      <div className="container">
-        <div className="row">
-          {this.props.peep.body}
-        </div>
-        <div className="row">
-          Peeped by {this.props.peep.user.handle} {moment(this.props.peep.created_at).fromNow()}.
-        </div>
-        <hr/><br/>
+const Peep = props => {
+  return (
+    <div className="container">
+      <div className="row">
+        {props.peep.body}
       </div>
-    )
-  }
-}
+      <div className="row">
+        Peeped by
+        {' '}
+        {props.peep.user.handle}
+        {' '}
+        {moment(props.peep.created_at).fromNow()}
+.
+      </div>
+      <hr />
+      <br />
+    </div>
+  );
+};
+
+export default Peep;
