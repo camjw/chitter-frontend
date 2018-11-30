@@ -9,7 +9,11 @@ describe('App', () => {
       App.prototype.getPeeps = jest.fn();
       const getPeeps = jest.fn();
       const clearPeeps = jest.fn();
-      let appWrapper = shallow(<App getPeeps={getPeeps} clearPeeps={clearPeeps} isFetching={false} />);
+      const appWrapper = shallow(<App
+        getPeeps={getPeeps}
+        clearPeeps={clearPeeps}
+        isFetching={false}
+      />);
       expect(appWrapper.html()).toEqual('hello');
     });
   });
