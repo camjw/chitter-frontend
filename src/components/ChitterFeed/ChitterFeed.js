@@ -18,7 +18,9 @@ ChitterFeed.propTypes = {
 };
 
 ChitterFeed.defaultProps = {
-  peeps: [{ body: 'Loading', user: { handle: 'Loading' }, createdAt: 'Loading' }],
+  peeps: [{
+    id: -1, body: 'Loading', user: { handle: 'Loading' }, createdAt: 'Loading',
+  }],
 };
 
 export default ChitterFeed;

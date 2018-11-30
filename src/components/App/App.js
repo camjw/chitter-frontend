@@ -1,31 +1,56 @@
 import React from 'react';
-import ChitterFeed from '../ChitterFeed'
+import PropTypes from 'prop-types';
+import ChitterFeed from '../ChitterFeed';
 
 export default class App extends React.Component {
+  constructor() {
+    super();
+    const { getPeeps, clearPeeps } = this.props;
+    this.updatePeepList = () => getPeeps();
+    this.clearPeepList = () => clearPeeps();
+  }
+
   componentDidMount() {
     this.updatePeepList();
   }
 
-  updatePeepList = () => this.props.getPeeps();
-  clearPeepList = () => this.props.clearPeeps();
-
   render() {
+    const { receivedAt, isFetching, peeps } = this.props;
     return (
       <div>
         <h1>Chitter</h1>
 
-        <button onClick={() => this.updatePeepList()}>
+        <button type="submit" onClick={() => this.updatePeepList()}>
           Refresh Feed
         </button>
-        {this.props.receivedAt ?
-          <h2>Last updated {new Date(this.props.receivedAt).toLocaleTimeString()}</h2>
+        {receivedAt
+          ? (
+            <h2>
+ Last updated
+              {' '}
+              {new Date(receivedAt).toLocaleTimeString()}
+            </h2>
+          )
           : null
         }
 
-        {this.props.isFetching ? <h3>Loading Chitter Feed.</h3> :
-          <ChitterFeed peeps={this.props.peeps} />
+        {isFetching ? <h3>Loading Chitter Feed.</h3>
+          : <ChitterFeed peeps={peeps} />
         }
       </div>
     );
   }
 }
+
+App.propTypes = {
+  getPeeps: PropTypes.func.isRequired,
+  clearPeeps: PropTypes.func.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  receivedAt: PropTypes.bool,
+  peeps: PropTypes.arrayOf(PropTypes.shape()),
+};
+
+App.defaultProps = {
+  receivedAt: false,
+  peeps: [],
+};

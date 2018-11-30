@@ -21,7 +21,7 @@ const Peep = ({ peep }) => (
 );
 
 Peep.propTypes = {
-  peep: PropTypes.shape.isRequired,
+  peep: PropTypes.shape().isRequired,
 };
 
 export default Peep;

@@ -7,9 +7,11 @@
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
     "moment": "^2.22.2",
+    "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-redux": "^5.1.0",
+    "react-scripts": "^2.1.1",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-mock-store": "^1.5.3",
@@ -21,7 +23,7 @@
     "react_test": "react-scripts test",
     "eject": "react-scripts eject",
     "test": "jest --coverage",
-    "lint": "./node_modules/.bin/eslint src"
+    "lint": "./node_modules/.bin/eslint --fix src"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,11 +40,7 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
-    "eslint": "^5.9.0",
     "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.11.1",
     "jest": "^23.6.0",
     "jest-cli": "^23.6.0",
     "regenerator-runtime": "^0.12.1"
