@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
+import LikeButton from '../LikeButton'
 
 const Peep = ({ peep }) => (
   <div className="container">
@@ -20,6 +21,9 @@ const Peep = ({ peep }) => (
         {peep.likes.length}
         {' '}
         {peep.likes.length === 1 ? 'like' : 'likes'}
+      </div>
+      <div className="col-sm-4">
+        <LikeButton />
       </div>
     </div>
     <hr />
