@@ -1,3 +1,4 @@
+import fetch from 'isomorphic-fetch'
 export const ADD_PEEPS = 'ADD_PEEPS';
 export const REQUEST_PEEPS = 'REQUEST_PEEPS';
 export const CLEAR_PEEPS = 'CLEAR_PEEPS';

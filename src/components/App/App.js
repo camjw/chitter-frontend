@@ -16,26 +16,38 @@ export default class App extends React.Component {
   render() {
     const { receivedAt, isFetching, peeps } = this.props;
     return (
-      <div>
-        <h1>Chitter</h1>
-
-        <button type="submit" onClick={() => this.updatePeepList()}>
-          Refresh Feed
-        </button>
-        {receivedAt
-          ? (
-            <h2>
- Last updated
-              {' '}
-              {new Date(receivedAt).toLocaleTimeString()}
-            </h2>
-          )
-          : null
-        }
-
-        {isFetching ? <h3>Loading Chitter Feed.</h3>
-          : <ChitterFeed peeps={peeps} />
-        }
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-4">
+            <h1>Chitter</h1>
+          </div>
+          <div className="col-sm-8">
+            <div className="row">
+              <div className="col-sm">
+                {receivedAt
+                  ? (
+                    <h2>
+                  Last updated
+                      {' '}
+                      {new Date(receivedAt).toLocaleTimeString()}
+                    </h2>
+                  )
+                  : <h2>Loading Chitter Feed</h2>
+              }
+              </div>
+              <div className="col-sm">
+                <button type="submit" onClick={() => this.updatePeepList()}>
+                  Refresh Feed
+                </button>
+              </div>
+            </div>
+            <div className="row">
+              {isFetching ? null
+                : <ChitterFeed peeps={peeps} />
+              }
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
