@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Peep #render renders some HTML 1`] = `"<div class=\\"container\\"><div class=\\"row\\">Hello Jest</div><div class=\\"row\\">Peeped by Test user a few seconds ago.</div><hr/><br/></div>"`;
+exports[`Peep #render renders likes if there are any 1`] = `"<div class=\\"container\\"><div class=\\"row\\"><h4>Hello Jest</h4></div><div class=\\"row\\"><div class=\\"col-sm-4\\">Peeped by Test user a few seconds ago.</div><div class=\\"col-sm-4\\">1 like</div></div><hr/><br/></div>"`;
+
+exports[`Peep #render renders some HTML 1`] = `"<div class=\\"container\\"><div class=\\"row\\"><h4>Hello Jest</h4></div><div class=\\"row\\"><div class=\\"col-sm-4\\">Peeped by Test user a few seconds ago.</div><div class=\\"col-sm-4\\">0 likes</div></div><hr/><br/></div>"`;

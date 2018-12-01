@@ -16,9 +16,7 @@ const store = mockStore(initialState);
 describe('AppContainer', () => {
   it('dispatches REQUEST_PEEPS event', () => {
     const wrapper = shallow(<AppContainer store={store} />);
-    const component = wrapper.dive();
-
-
+    wrapper.dive();
     expect(store.getActions()).toEqual([{ isFetching: true, type: 'REQUEST_PEEPS' }]);
   });
 });

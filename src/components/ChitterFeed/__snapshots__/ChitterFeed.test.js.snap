@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ChitterFeed #render renders some HTML 1`] = `"<ul><hr/><div><div class=\\"container\\"><div class=\\"row\\">Hello test</div><div class=\\"row\\">Peeped by Hello a few seconds ago.</div><hr/><br/></div></div></ul>"`;
+exports[`ChitterFeed #render renders some HTML 1`] = `"<ul><hr/><div><div class=\\"container\\"><div class=\\"row\\"><h4>Hello test</h4></div><div class=\\"row\\"><div class=\\"col-sm-4\\">Peeped by Hello a few seconds ago.</div><div class=\\"col-sm-4\\">0 likes</div></div><hr/><br/></div></div></ul>"`;
