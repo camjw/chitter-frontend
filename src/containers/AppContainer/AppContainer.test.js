@@ -2,13 +2,13 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import AppContainer from './AppContainer'
+import AppContainer from './AppContainer';
 
 const mockStore = configureStore([thunk]);
 const initialState = {
   reducePeeps: {
     peeps: [],
-    isFetching: false
+    isFetching: false,
   },
 };
 const store = mockStore(initialState);
@@ -19,6 +19,6 @@ describe('AppContainer', () => {
     const component = wrapper.dive();
 
 
-    expect(store.getActions()).toEqual([{"isFetching": true, "type": "REQUEST_PEEPS"}])
+    expect(store.getActions()).toEqual([{ isFetching: true, type: 'REQUEST_PEEPS' }]);
   });
 });

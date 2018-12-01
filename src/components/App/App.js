@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ChitterFeed from '../ChitterFeed';
+import UserSignUp from '../UserSignUp';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -19,7 +20,12 @@ export default class App extends React.Component {
       <div className="container">
         <div className="row">
           <div className="col-sm-4">
-            <h1>Chitter</h1>
+            <div className="row">
+              <h1>Chitter</h1>
+            </div>
+            <div className="row">
+              <UserSignUp />
+            </div>
           </div>
           <div className="col-sm-8">
             <div className="row">

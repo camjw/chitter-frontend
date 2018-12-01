@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import App from '../../components/App';
-import { getPeeps, clearPeeps } from '../../actions';
+import { getPeeps, clearPeeps } from '../../actions/peepActions';
 
 const mapStateToProps = state => ({
   peeps: state.reducePeeps.peeps,
