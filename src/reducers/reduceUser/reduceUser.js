@@ -20,6 +20,19 @@ export default function reduceUser(state = [], action) {
         signedIn: false,
         createdUser: action.createdUser,
       };
+    case userActions.SIGNED_IN_USER:
+      return {
+        isCreating: action.isCreating,
+        signedIn: true,
+        currentUserID: action.currentUserID,
+        currentUser: state.currentUser,
+      };
+    case userActions.ATTEMPT_SIGN_IN:
+      return {
+        isCreating: action.isCreating,
+        signedIn: false,
+        currentUser: action.currentUser,
+      };
     default:
       return state;
   }

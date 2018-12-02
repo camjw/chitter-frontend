@@ -8,6 +8,7 @@ const mapStateToProps = state => ({
   receivedAt: state.reducePeeps.receivedAt,
   signedIn: state.reduceUser.signedIn,
   currentUser: state.reduceUser.currentUser,
+  currentUserID: state.reduceUser.currentUserID,
   createdUser: state.reduceUser.createdUser,
 });
 const mapDispatchToProps = { getPeeps, clearPeeps };

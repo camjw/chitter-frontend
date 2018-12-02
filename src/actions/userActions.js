@@ -2,7 +2,7 @@ import fetch from 'isomorphic-fetch';
 
 export const ADD_USER = 'ADD_USER';
 export const ATTEMPT_SIGN_IN = 'ATTEMPT_SIGN_IN';
-export const SIGNED_IN_USER = 'SIGN_IN_USER';
+export const SIGNED_IN_USER = 'SIGNED_IN_USER';
 export const TAKEN_HANDLE = 'TAKEN_HANDLE';
 export const CREATED_USER = 'CREATED_USER';
 
@@ -12,16 +12,17 @@ export const addUser = () => ({
   isCreating: true,
 });
 
-export const attemptSignIn = () => ({
+export const attemptSignIn = handle => ({
   type: ATTEMPT_SIGN_IN,
   isCreating: false,
   isSigningIn: true,
+  currentUser: handle,
 });
 
 export const signedInUser = userData => ({
   type: SIGNED_IN_USER,
   isCreating: false,
-  currentUser: userData.handle,
+  currentUserID: userData.user_id,
   sessionKey: userData.session_key,
 });
 
@@ -56,13 +57,14 @@ export function createUser(handle, password) {
 
 export function signInUser(handle, password) {
   return (dispatch) => {
-    dispatch(attemptSignIn());
+    dispatch(attemptSignIn(handle));
     return fetch('https://chitter-backend-api.herokuapp.com/sessions', {
       method: 'POST',
-      body: JSON.stringify({ user: { handle, password } }),
+      body: JSON.stringify({ session: { handle, password } }),
       headers: { 'Content-Type': 'application/json; charset=utf-8' },
     }).then(response => response.json())
       .then((json) => {
+        console.log(json);
         dispatch(signedInUser(json));
       });
   };
