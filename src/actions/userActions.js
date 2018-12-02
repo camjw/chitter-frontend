@@ -5,6 +5,7 @@ export const ATTEMPT_SIGN_IN = 'ATTEMPT_SIGN_IN';
 export const SIGNED_IN_USER = 'SIGNED_IN_USER';
 export const TAKEN_HANDLE = 'TAKEN_HANDLE';
 export const CREATED_USER = 'CREATED_USER';
+export const INCORRECT_SIGN_IN = 'INCORRECT_SIGN_IN';
 
 
 export const addUser = () => ({
@@ -37,6 +38,13 @@ export const createdUser = userData => ({
   createdUser: userData.handle,
 });
 
+export const incorrectSignIn = () => ({
+  type: INCORRECT_SIGN_IN,
+  isCreating: false,
+  currentUser: null,
+  incorrectSignIn: true
+});
+
 export function createUser(handle, password) {
   return (dispatch) => {
     dispatch(addUser());
@@ -62,10 +70,16 @@ export function signInUser(handle, password) {
       method: 'POST',
       body: JSON.stringify({ session: { handle, password } }),
       headers: { 'Content-Type': 'application/json; charset=utf-8' },
-    }).then(response => response.json())
+    }).then(response => {
+      if (!response.ok) {
+        dispatch(incorrectSignIn())
+        throw Error(response.statusText)
+      }
+    })
+      .then(response => response.json())
       .then((json) => {
-        console.log(json);
         dispatch(signedInUser(json));
-      });
+      })
+      .catch(error => error );
   };
 }

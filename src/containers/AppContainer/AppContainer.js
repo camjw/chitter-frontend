@@ -10,6 +10,7 @@ const mapStateToProps = state => ({
   currentUser: state.reduceUser.currentUser,
   currentUserID: state.reduceUser.currentUserID,
   createdUser: state.reduceUser.createdUser,
+  incorrectSignIn: state.reduceUser.incorrectSignIn,
 });
 const mapDispatchToProps = { getPeeps, clearPeeps };
 const AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);

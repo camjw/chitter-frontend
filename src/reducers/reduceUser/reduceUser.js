@@ -33,6 +33,13 @@ export default function reduceUser(state = [], action) {
         signedIn: false,
         currentUser: action.currentUser,
       };
+    case userActions.INCORRECT_SIGN_IN:
+      return {
+        isCreating: action.isCreating,
+        signedIn: false,
+        currentUser: action.currentUser,
+        incorrectSignIn: action.incorrectSignIn
+      };
     default:
       return state;
   }
