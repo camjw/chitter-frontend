@@ -11,11 +11,14 @@ export default class App extends React.Component {
     this.updatePeepList = () => getPeeps();
     this.state = {
       displaySignUp: false,
-      displaySignIn: false
-    }
+      displaySignIn: true,
+    };
     this.showSignUp = () => {
-      this.setState({ displaySignUp: true})
-    }
+      this.setState({ displaySignUp: true, displaySignIn: false });
+    };
+    this.showSignIn = () => {
+      this.setState({ displaySignUp: false, displaySignIn: true });
+    };
   }
 
   componentDidMount() {
@@ -32,24 +35,55 @@ export default class App extends React.Component {
             <div className="row">
               <h1>Chitter</h1>
             </div>
-            {this.props.currentUser &&
-              <h4> Welcome to chitter {this.props.currentUser} </h4>
-            }
-            {!this.props.currentUser &&
-              <div className='row'>
-                <button onClick={this.showSignUp}>Sign Up to Chitter</button>
-                <button onClick={this.showSignIn}>Sign In to Chitter</button>
+            {!this.props.currentUser
+              && (
+              <div className="row">
+                {this.props.createdUser
+                  && (
+                  <h4>
+                    {' '}
+Created user
+                    {this.props.createdUser}
+                    {' '}
+
+                  </h4>
+                  )
+                }
+                {this.props.currentUser
+                  && (
+                  <h4>
+                    {' '}
+Welcome to chitter
+                    {this.props.currentUser}
+                    {' '}
+
+                  </h4>
+                  )
+                }
+                {!this.props.currentUser
+                  && (
+                  <div className="row">
+                    <button onClick={this.showSignUp}>Sign Up to Chitter</button>
+                    <button onClick={this.showSignIn}>Sign In to Chitter</button>
+                  </div>
+                  )
+                }
+                {this.state.displaySignUp
+                  && (
+                  <div className="row" id="UserSignUp">
+                    <UserSignUpContainer />
+                  </div>
+                  )
+                }
+                {this.state.displaySignIn
+                  && (
+                  <div className="row" id="UserSignUp">
+                    <UserSignInContainer />
+                  </div>
+                  )
+                }
               </div>
-            }
-            {this.state.displaySignUp &&
-              <div className="row" id='UserSignUp'>
-                <UserSignUpContainer />
-              </div>
-            }
-            {this.state.displaySignIn &&
-              <div className="row" id='UserSignUp'>
-                <UserSignInContainer />
-              </div>
+              )
             }
           </div>
           <div className="col-sm-6">

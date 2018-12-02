@@ -6,16 +6,18 @@ export default class UserSignUp extends React.Component {
   constructor(props) {
     super(props);
     const { createUser } = props;
-    this.createNewUser = (handle, password) => createUser(handle, password);
+    this.createNewUser = (handle, password) => {
+      createUser(handle, password);
+    };
     this.updateUsername = (event) => {
-      this.setState({ username: event.target.value })
-    }
+      this.setState({ username: event.target.value });
+    };
     this.updatePassword = (event) => {
-      this.setState({ password: event.target.value })
-    }
+      this.setState({ password: event.target.value });
+    };
     this.updatePasswordConfirm = (event) => {
-      this.setState({ passwordConfirm: event.target.value })
-    }
+      this.setState({ passwordConfirm: event.target.value });
+    };
   }
 
 
