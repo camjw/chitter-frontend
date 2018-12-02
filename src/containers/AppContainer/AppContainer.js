@@ -7,7 +7,8 @@ const mapStateToProps = state => ({
   isFetching: state.reducePeeps.isFetching,
   receivedAt: state.reducePeeps.receivedAt,
   signedIn: state.reduceUser.signedIn,
-  currentUser: state.reduceUser.currentUser
+  currentUser: state.reduceUser.currentUser,
+  createdUser: state.reduceUser.createdUser,
 });
 const mapDispatchToProps = { getPeeps, clearPeeps };
 const AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);
