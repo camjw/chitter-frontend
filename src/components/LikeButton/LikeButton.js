@@ -5,6 +5,6 @@ export default class LikeButton extends React.Component {
   render() {
     return (
       <button>Like</button>
-    )
+    );
   }
 }

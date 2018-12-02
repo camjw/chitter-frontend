@@ -1,3 +1,3 @@
 import reduceUser from './reduceUser';
 
-export default reduceUser
+export default reduceUser;

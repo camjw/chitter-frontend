@@ -23,9 +23,14 @@ export default class App extends React.Component {
             <div className="row">
               <h1>Chitter</h1>
             </div>
-            <div className="row">
-              <UserSignUpContainer />
-            </div>
+            {this.props.currentUser &&
+              <h4> Welcome to chitter {this.props.currentUser} </h4>
+            }
+            {!this.props.currentUser &&
+              <div className="row" id='UserSignUp'>
+                <UserSignUpContainer />
+              </div>
+            }
           </div>
           <div className="col-sm-6">
             <div className="row">
@@ -42,7 +47,7 @@ export default class App extends React.Component {
               }
               </div>
               <div className="col-sm">
-                <button className='btn btn-primary' type="submit" onClick={() => this.updatePeepList()}>
+                <button className="btn btn-primary" type="submit" onClick={() => this.updatePeepList()}>
                   Refresh Feed
                 </button>
               </div>

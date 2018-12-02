@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import LikeButton from '../LikeButton'
+import LikeButton from '../LikeButton';
 
 const Peep = ({ peep }) => (
   <div className="container">
