@@ -1,7 +1,7 @@
 import * as userActions from '../../actions/userActions';
 
 export default function reduceUser(state = [], action) {
-  console.log(action)
+  console.log(action);
   switch (action.type) {
     case userActions.ADD_USER:
       return {
@@ -14,11 +14,11 @@ export default function reduceUser(state = [], action) {
         signedIn: false,
         takenHandle: true,
       };
-    case userActions.SIGN_IN_USER:
+    case userActions.CREATED_USER:
       return {
         isCreating: action.isCreating,
-        signedIn: true,
-        currentUser: action.currentUser,
+        signedIn: false,
+        createdUser: action.createdUser,
       };
     default:
       return state;
