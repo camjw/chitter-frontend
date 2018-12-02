@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ChitterFeed from '../ChitterFeed';
-import UserSignUp from '../UserSignUp';
+import UserSignUpContainer from '../../containers/UserSignUpContainer';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -19,15 +19,15 @@ export default class App extends React.Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-sm-4">
+          <div className="col-sm-6">
             <div className="row">
               <h1>Chitter</h1>
             </div>
             <div className="row">
-              <UserSignUp />
+              <UserSignUpContainer />
             </div>
           </div>
-          <div className="col-sm-8">
+          <div className="col-sm-6">
             <div className="row">
               <div className="col-sm">
                 {receivedAt
@@ -42,7 +42,7 @@ export default class App extends React.Component {
               }
               </div>
               <div className="col-sm">
-                <button type="submit" onClick={() => this.updatePeepList()}>
+                <button className='btn btn-primary' type="submit" onClick={() => this.updatePeepList()}>
                   Refresh Feed
                 </button>
               </div>
@@ -62,7 +62,7 @@ export default class App extends React.Component {
 App.propTypes = {
   getPeeps: PropTypes.func.isRequired,
   isFetching: PropTypes.bool.isRequired,
-  receivedAt: PropTypes.instanceOf(Date),
+  receivedAt: PropTypes.number,
   peeps: PropTypes.arrayOf(PropTypes.shape()),
 };
 
