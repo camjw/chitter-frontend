@@ -1,8 +1,10 @@
 import fetch from 'isomorphic-fetch';
 
 export const ADD_USER = 'ADD_USER';
-export const SIGN_IN_USER = 'SIGN_IN_USER';
+export const ATTEMPT_SIGN_IN = 'ATTEMPT_SIGN_IN';
+export const SIGNED_IN_USER = 'SIGN_IN_USER';
 export const TAKEN_HANDLE = 'TAKEN_HANDLE';
+export const CREATED_USER = 'CREATED_USER';
 
 
 export const addUser = () => ({
@@ -10,10 +12,17 @@ export const addUser = () => ({
   isCreating: true,
 });
 
-export const signInUser = user => ({
-  type: SIGN_IN_USER,
+export const attemptSignIn = () => ({
+  type: ATTEMPT_SIGN_IN,
   isCreating: false,
-  currentUser: user.handle,
+  isSigningIn: true,
+});
+
+export const signedInUser = userData => ({
+  type: SIGNED_IN_USER,
+  isCreating: false,
+  currentUser: userData.handle,
+  sessionKey: userData.session_key,
 });
 
 export const takenHandle = () => ({
@@ -21,6 +30,11 @@ export const takenHandle = () => ({
   isCreating: false,
 });
 
+export const createdUser = userData => ({
+  type: CREATED_USER,
+  isCreating: false,
+  createdUser: userData.handle,
+});
 
 export function createUser(handle, password) {
   return (dispatch) => {
@@ -34,8 +48,22 @@ export function createUser(handle, password) {
         if (json.handle[0] === 'Handle already taken') {
           dispatch(takenHandle());
         } else {
-          dispatch(signInUser(json));
+          dispatch(createdUser(json));
         }
+      });
+  };
+}
+
+export function signInUser(handle, password) {
+  return (dispatch) => {
+    dispatch(attemptSignIn());
+    return fetch('https://chitter-backend-api.herokuapp.com/sessions', {
+      method: 'POST',
+      body: JSON.stringify({ user: { handle, password } }),
+      headers: { 'Content-Type': 'application/json; charset=utf-8' },
+    }).then(response => response.json())
+      .then((json) => {
+        dispatch(signedInUser(json));
       });
   };
 }
