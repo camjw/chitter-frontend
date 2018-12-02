@@ -2,16 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ChitterFeed from '../ChitterFeed';
 import UserSignUpContainer from '../../containers/UserSignUpContainer';
+import UserSignInContainer from '../../containers/UserSignInContainer';
 
 export default class App extends React.Component {
   constructor(props) {
-    super();
+    super(props);
     const { getPeeps } = props;
     this.updatePeepList = () => getPeeps();
+    this.state = {
+      displaySignUp: false,
+      displaySignIn: false
+    }
   }
 
   componentDidMount() {
     this.updatePeepList();
+  }
+
+  showSignUp = () => {
+    console.log(this.state)
+    this.setState({ displaySignUp: true})
   }
 
   render() {
@@ -27,8 +37,19 @@ export default class App extends React.Component {
               <h4> Welcome to chitter {this.props.currentUser} </h4>
             }
             {!this.props.currentUser &&
+              <div className='row'>
+                <button onClick={this.showSignUp}>Sign Up to Chitter</button>
+                <button onClick={this.showSignIn}>Sign In to Chitter</button>
+              </div>
+            }
+            {this.state.displaySignUp &&
               <div className="row" id='UserSignUp'>
                 <UserSignUpContainer />
+              </div>
+            }
+            {this.state.displaySignIn &&
+              <div className="row" id='UserSignUp'>
+                <UserSignInContainer />
               </div>
             }
           </div>
