@@ -13,16 +13,15 @@ export default class App extends React.Component {
       displaySignUp: false,
       displaySignIn: false
     }
+    this.showSignUp = () => {
+      this.setState({ displaySignUp: true})
+    }
   }
 
   componentDidMount() {
     this.updatePeepList();
   }
 
-  showSignUp = () => {
-    console.log(this.state)
-    this.setState({ displaySignUp: true})
-  }
 
   render() {
     const { receivedAt, isFetching, peeps } = this.props;
