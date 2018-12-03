@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import App from './App';
 import toJson from 'enzyme-to-json';
+import App from './App';
 
 
 describe('App', () => {
@@ -22,9 +22,9 @@ describe('App', () => {
         isFetching={false}
         receivedAt={0}
       />);
-      let tree = toJson(appWrapper)
-      expect(tree).toMatchSnapshot()
-    })
+      const tree = toJson(appWrapper);
+      expect(tree).toMatchSnapshot();
+    });
   });
 
   describe('button clicking', () => {
@@ -45,12 +45,11 @@ describe('App', () => {
         isFetching={false}
         receivedAt={0}
       />);
-      expect(appWrapper.state()).toEqual({"displaySignIn": true, "displaySignUp": false})
-      appWrapper.find('#showSignUp').simulate('click')
-      expect(appWrapper.state()).toEqual({"displaySignIn": false, "displaySignUp": true})
-      appWrapper.find('#showSignIn').simulate('click')
-      expect(appWrapper.state()).toEqual({"displaySignIn": true, "displaySignUp": false})
-
+      expect(appWrapper.state()).toEqual({ displaySignIn: true, displaySignUp: false });
+      appWrapper.find('#showSignUp').simulate('click');
+      expect(appWrapper.state()).toEqual({ displaySignIn: false, displaySignUp: true });
+      appWrapper.find('#showSignIn').simulate('click');
+      expect(appWrapper.state()).toEqual({ displaySignIn: true, displaySignUp: false });
     });
   });
 });
