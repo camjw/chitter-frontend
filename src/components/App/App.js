@@ -52,8 +52,8 @@ export default class App extends React.Component {
               && (
               <div className="row">
                 <div className="row">
-                  <button onClick={this.showSignUp}>Sign Up to Chitter</button>
-                  <button onClick={this.showSignIn}>Sign In to Chitter</button>
+                  <button id="showSignUp" onClick={this.showSignUp}>Sign Up to Chitter</button>
+                  <button id="showSignIn" onClick={this.showSignIn}>Sign In to Chitter</button>
                 </div>
                 {this.props.createdUser
                   && (
@@ -106,7 +106,7 @@ export default class App extends React.Component {
               }
               </div>
               <div className="col-sm">
-                <button className="btn btn-primary" type="submit" onClick={() => this.updatePeepList()}>
+                <button id="refreshPeeps" className="btn btn-primary" type="submit" onClick={() => this.updatePeepList()}>
                   Refresh Feed
                 </button>
               </div>

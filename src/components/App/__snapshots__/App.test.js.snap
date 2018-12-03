@@ -1,3 +1,92 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`App #render Renders the App 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-sm-6"
+    >
+      <div
+        className="row"
+      >
+        <h1>
+          Chitter
+        </h1>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="row"
+        >
+          <button
+            id="showSignUp"
+            onClick={[Function]}
+          >
+            Sign Up to Chitter
+          </button>
+          <button
+            id="showSignIn"
+            onClick={[Function]}
+          >
+            Sign In to Chitter
+          </button>
+        </div>
+        <div
+          className="row"
+          id="UserSignUp"
+        >
+          <Connect(UserSignIn) />
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-sm-6"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col-sm"
+        >
+          <h2>
+            Loading Chitter Feed
+          </h2>
+        </div>
+        <div
+          className="col-sm"
+        >
+          <button
+            className="btn btn-primary"
+            id="refreshPeeps"
+            onClick={[Function]}
+            type="submit"
+          >
+            Refresh Feed
+          </button>
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <ChitterFeed
+          peeps={Array []}
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`App #render informs the user that peeps are being fetched if isFetching is true 1`] = `"<div class=\\"container\\"><div class=\\"row\\"><div class=\\"col-sm-4\\"><div class=\\"row\\"><h1>Chitter</h1></div><div class=\\"row\\"><h3> Hello </h3></div></div><div class=\\"col-sm-8\\"><div class=\\"row\\"><div class=\\"col-sm\\"><h2>Loading Chitter Feed</h2></div><div class=\\"col-sm\\"><button type=\\"submit\\">Refresh Feed</button></div></div><div class=\\"row\\"></div></div></div></div>"`;
+
+exports[`App button clicking has buttons which display the signup and sign ins 1`] = `
+Object {
+  "displaySignIn": true,
+  "displaySignUp": false,
+}
+`;

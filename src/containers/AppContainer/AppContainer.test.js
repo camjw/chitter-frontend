@@ -3,6 +3,8 @@ import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import AppContainer from './AppContainer';
+import { Provider } from 'react-redux';
+
 
 const mockStore = configureStore([thunk]);
 const initialState = {
@@ -10,6 +12,7 @@ const initialState = {
     peeps: [],
     isFetching: false,
   },
+  reduceUser: {}
 };
 const store = mockStore(initialState);
 

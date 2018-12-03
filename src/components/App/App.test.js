@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App';
+import toJson from 'enzyme-to-json';
 
 
 describe('App', () => {
@@ -10,20 +11,20 @@ describe('App', () => {
       shallow(<App
         getPeeps={getPeeps}
         isFetching={false}
-        receivedAt={new Date(0)}
+        receivedAt={0}
       />);
       expect(getPeeps.mock.calls.length).toEqual(1);
     });
-
-    it('informs the user that peeps are being fetched if isFetching is true', () => {
+    it('Renders the App', () => {
       const getPeeps = jest.fn();
       const appWrapper = shallow(<App
         getPeeps={getPeeps}
-        isFetching
-        receivedAt={null}
+        isFetching={false}
+        receivedAt={0}
       />);
-      expect(appWrapper.html()).toMatchSnapshot();
-    });
+      let tree = toJson(appWrapper)
+      expect(tree).toMatchSnapshot()
+    })
   });
 
   describe('button clicking', () => {
@@ -32,10 +33,24 @@ describe('App', () => {
       const appWrapper = shallow(<App
         getPeeps={getPeeps}
         isFetching={false}
-        receivedAt={new Date(0)}
+        receivedAt={0}
       />);
-      appWrapper.find('button').simulate('click');
+      appWrapper.find('#refreshPeeps').simulate('click');
       expect(getPeeps.mock.calls.length).toEqual(2);
+    });
+    it('has buttons which display the signup and sign ins', () => {
+      const getPeeps = jest.fn();
+      const appWrapper = shallow(<App
+        getPeeps={getPeeps}
+        isFetching={false}
+        receivedAt={0}
+      />);
+      expect(appWrapper.state()).toEqual({"displaySignIn": true, "displaySignUp": false})
+      appWrapper.find('#showSignUp').simulate('click')
+      expect(appWrapper.state()).toEqual({"displaySignIn": false, "displaySignUp": true})
+      appWrapper.find('#showSignIn').simulate('click')
+      expect(appWrapper.state()).toEqual({"displaySignIn": true, "displaySignUp": false})
+
     });
   });
 });
