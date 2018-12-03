@@ -41,6 +41,10 @@ export default function reduceUser(state = [], action) {
         currentUser: action.currentUser,
         incorrectSignIn: action.incorrectSignIn,
       };
+    case userActions.INCORRECT_CONFIRM:
+      return {
+        incorrectConfirm: action.incorrectConfirm
+      }
     default:
       return state;
   }
