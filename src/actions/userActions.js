@@ -6,7 +6,7 @@ export const SIGNED_IN_USER = 'SIGNED_IN_USER';
 export const TAKEN_HANDLE = 'TAKEN_HANDLE';
 export const CREATED_USER = 'CREATED_USER';
 export const INCORRECT_SIGN_IN = 'INCORRECT_SIGN_IN';
-
+export const INCORRECT_CONFIRM = 'INCORRECT_CONFIRM';
 
 export const addUser = () => ({
   type: ADD_USER,
@@ -44,6 +44,11 @@ export const incorrectSignIn = () => ({
   currentUser: null,
   incorrectSignIn: true,
 });
+
+export const incorrectConfirm = () => ({
+  type: INCORRECT_CONFIRM,
+  incorrectConfirm: true
+})
 
 export function createUser(handle, password) {
   return (dispatch) => {
@@ -83,4 +88,10 @@ export function signInUser(handle, password) {
       })
       .catch(error => error);
   };
+}
+
+export function wrongConfirm() {
+  return (dispatch) => {
+    dispatch(incorrectConfirm())
+  }
 }
