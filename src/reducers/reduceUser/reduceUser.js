@@ -43,8 +43,8 @@ export default function reduceUser(state = [], action) {
       };
     case userActions.INCORRECT_CONFIRM:
       return {
-        incorrectConfirm: action.incorrectConfirm
-      }
+        incorrectConfirm: action.incorrectConfirm,
+      };
     default:
       return state;
   }

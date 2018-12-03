@@ -10,8 +10,8 @@ export default class UserSignUp extends React.Component {
       if (password === passwordConfirm) {
         createUser(handle, password);
       } else {
-        console.log('here')
-        wrongConfirm()
+        console.log('here');
+        wrongConfirm();
       }
     };
     this.updateUsername = (event) => {
@@ -28,10 +28,12 @@ export default class UserSignUp extends React.Component {
   render() {
     return (
       <div className="container">
-        {this.props.incorrectConfirm &&
-          <div className='row'>
-          <h4> Passwords do not match </h4>
+        {this.props.incorrectConfirm
+          && (
+          <div className="row">
+            <h4> Passwords do not match </h4>
           </div>
+          )
         }
         <div className="row">
           <h3>Sign up for Chitter</h3>

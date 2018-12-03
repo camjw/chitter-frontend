@@ -47,8 +47,8 @@ export const incorrectSignIn = () => ({
 
 export const incorrectConfirm = () => ({
   type: INCORRECT_CONFIRM,
-  incorrectConfirm: true
-})
+  incorrectConfirm: true,
+});
 
 export function createUser(handle, password) {
   return (dispatch) => {
@@ -92,6 +92,6 @@ export function signInUser(handle, password) {
 
 export function wrongConfirm() {
   return (dispatch) => {
-    dispatch(incorrectConfirm())
-  }
+    dispatch(incorrectConfirm());
+  };
 }

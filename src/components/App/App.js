@@ -58,11 +58,11 @@ export default class App extends React.Component {
                 {this.props.createdUser
                   && (
                     <h4>
-                    {' '}
+                      {' '}
                     Created user
-                    {' '}
-                    {this.props.createdUser}
-                    {' '}
+                      {' '}
+                      {this.props.createdUser}
+                      {' '}
 
                     </h4>
                   )

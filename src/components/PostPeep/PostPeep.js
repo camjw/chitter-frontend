@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './PostPeep.css'
+import './PostPeep.css';
 
 export default class PostPeep extends React.Component {
   constructor(props) {
@@ -18,7 +18,9 @@ export default class PostPeep extends React.Component {
       <div className="container">
         <div className="row">
           <h3>Post a new peep</h3>
-          <textarea id='peepBox' name="" rows="14" cols="10" wrap="soft" onChange={this.updatePeepText}> </textarea> <br />
+          <textarea id="peepBox" name="" rows="14" cols="10" wrap="soft" onChange={this.updatePeepText} />
+          {' '}
+          <br />
           <button type="submit" onClick={this.postPeep}> Click to post </button>
         </div>
       </div>

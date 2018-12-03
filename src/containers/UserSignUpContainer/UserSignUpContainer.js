@@ -4,7 +4,7 @@ import { createUser, wrongConfirm } from '../../actions/userActions';
 
 const mapStateToProps = state => ({
   signedIn: state.reduceUser.signedIn,
-  incorrectConfirm: state.reduceUser.incorrectConfirm
+  incorrectConfirm: state.reduceUser.incorrectConfirm,
 });
 const mapDispatchToProps = { createUser, wrongConfirm };
 const UserSignUpContainer = connect(mapStateToProps, mapDispatchToProps)(UserSignUp);
