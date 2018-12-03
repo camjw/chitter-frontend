@@ -63,8 +63,8 @@ export default class App extends React.Component {
                   </h4>
                   )
                 }
-                {this.props.incorrectSignIn &&
-                <h4> Incorrect log in details, please try again </h4>
+                {this.props.incorrectSignIn
+                && <h4> Incorrect log in details, please try again </h4>
                 }
                 <div className="row">
                   <button onClick={this.showSignUp}>Sign Up to Chitter</button>
@@ -87,8 +87,8 @@ export default class App extends React.Component {
               </div>
               )
             }
-            {this.props.currentUserID &&
-              <PostPeepContainer />
+            {this.props.currentUserID
+              && <PostPeepContainer />
             }
           </div>
           <div className="col-sm-6">

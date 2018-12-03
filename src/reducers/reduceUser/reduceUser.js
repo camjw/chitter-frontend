@@ -39,7 +39,7 @@ export default function reduceUser(state = [], action) {
         isCreating: action.isCreating,
         signedIn: false,
         currentUser: action.currentUser,
-        incorrectSignIn: action.incorrectSignIn
+        incorrectSignIn: action.incorrectSignIn,
       };
     default:
       return state;

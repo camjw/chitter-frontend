@@ -1,3 +1,3 @@
-import PostPeep from './PostPeep'
+import PostPeep from './PostPeep';
 
-export default PostPeep
+export default PostPeep;

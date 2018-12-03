@@ -42,7 +42,7 @@ export const incorrectSignIn = () => ({
   type: INCORRECT_SIGN_IN,
   isCreating: false,
   currentUser: null,
-  incorrectSignIn: true
+  incorrectSignIn: true,
 });
 
 export function createUser(handle, password) {
@@ -70,12 +70,12 @@ export function signInUser(handle, password) {
       method: 'POST',
       body: JSON.stringify({ session: { handle, password } }),
       headers: { 'Content-Type': 'application/json; charset=utf-8' },
-    }).then(response => {
+    }).then((response) => {
       if (!response.ok) {
-        dispatch(incorrectSignIn())
-        throw Error(response.statusText)
+        dispatch(incorrectSignIn());
+        throw Error(response.statusText);
       } else {
-        return response.json()
+        return response.json();
       }
     })
       .then((json) => {

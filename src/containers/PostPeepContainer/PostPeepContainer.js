@@ -4,7 +4,7 @@ import { postPeep } from '../../actions/postActions';
 
 const mapStateToProps = state => ({
   currentSession: state.reduceUser.currentSession,
-  currentUserID: state.reduceUser.currentUserID
+  currentUserID: state.reduceUser.currentUserID,
 });
 
 const mapDispatchToProps = { postPeep };

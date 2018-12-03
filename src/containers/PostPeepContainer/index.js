@@ -1,3 +1,3 @@
-import PostPeepContainer from './PostPeepContainer'
+import PostPeepContainer from './PostPeepContainer';
 
-export default PostPeepContainer
+export default PostPeepContainer;
