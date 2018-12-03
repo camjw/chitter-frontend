@@ -27,7 +27,7 @@ export default class UserSignIn extends React.Component {
           {' '}
           <br />
           <label>Password: </label>
-          <input id="password" type="text" onChange={this.updatePassword} />
+          <input id="password" type="password" onChange={this.updatePassword} />
           <br />
         </div>
         <div className="row">

@@ -5,9 +5,14 @@ import './UserSignUp.css';
 export default class UserSignUp extends React.Component {
   constructor(props) {
     super(props);
-    const { createUser } = props;
-    this.createNewUser = (handle, password) => {
-      createUser(handle, password);
+    const { createUser, wrongConfirm } = props;
+    this.createNewUser = (handle, password, passwordConfirm) => {
+      if (password === passwordConfirm) {
+        createUser(handle, password);
+      } else {
+        console.log('here')
+        wrongConfirm()
+      }
     };
     this.updateUsername = (event) => {
       this.setState({ username: event.target.value });
@@ -20,10 +25,14 @@ export default class UserSignUp extends React.Component {
     };
   }
 
-
   render() {
     return (
       <div className="container">
+        {this.props.incorrectConfirm &&
+          <div className='row'>
+          <h4> Passwords do not match </h4>
+          </div>
+        }
         <div className="row">
           <h3>Sign up for Chitter</h3>
         </div>
@@ -33,14 +42,14 @@ export default class UserSignUp extends React.Component {
           {' '}
           <br />
           <label>Password: </label>
-          <input id="password" type="text" onChange={this.updatePassword} />
+          <input id="password" type="password" onChange={this.updatePassword} />
           <br />
           <label>Confirm password: </label>
-          <input id="passwordConfirm" type="text" onChange={this.updatePasswordConfirm} />
+          <input id="passwordConfirm" type="password" onChange={this.updatePasswordConfirm} />
           <br />
         </div>
         <div className="row">
-          <button className="btn btn-primary" type="submit" onClick={() => this.createNewUser(this.state.username, this.state.password)}>
+          <button className="btn btn-primary" type="submit" onClick={() => this.createNewUser(this.state.username, this.state.password, this.state.passwordConfirm)}>
             Sign up
           </button>
         </div>

@@ -51,25 +51,25 @@ export default class App extends React.Component {
             {!this.props.currentUserID
               && (
               <div className="row">
+                <div className="row">
+                  <button onClick={this.showSignUp}>Sign Up to Chitter</button>
+                  <button onClick={this.showSignIn}>Sign In to Chitter</button>
+                </div>
                 {this.props.createdUser
                   && (
-                  <h4>
+                    <h4>
                     {' '}
                     Created user
                     {' '}
                     {this.props.createdUser}
                     {' '}
 
-                  </h4>
+                    </h4>
                   )
                 }
                 {this.props.incorrectSignIn
-                && <h4> Incorrect log in details, please try again </h4>
+                  && <h4> Incorrect log in details, please try again </h4>
                 }
-                <div className="row">
-                  <button onClick={this.showSignUp}>Sign Up to Chitter</button>
-                  <button onClick={this.showSignIn}>Sign In to Chitter</button>
-                </div>
                 {this.state.displaySignUp
                   && (
                   <div className="row" id="UserSignUp">
