@@ -10,7 +10,6 @@ export default class UserSignUp extends React.Component {
       if (password === passwordConfirm) {
         createUser(handle, password);
       } else {
-        console.log('here');
         wrongConfirm();
       }
     };

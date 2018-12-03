@@ -9,7 +9,6 @@ export default class PostPeep extends React.Component {
     this.updatePeepText = (event) => {
       this.setState({ peepText: event.target.value });
     };
-    console.log(this.props);
     this.postPeep = () => postPeep(this.props.currentUserID, this.props.currentSession, this.state.peepText);
   }
 

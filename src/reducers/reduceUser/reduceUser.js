@@ -1,7 +1,6 @@
 import * as userActions from '../../actions/userActions';
 
 export default function reduceUser(state = [], action) {
-  console.log(action);
   switch (action.type) {
     case userActions.ADD_USER:
       return {

@@ -23,7 +23,6 @@ export const postedPeep = () => ({
 });
 
 export function postPeep(userID, sessionKey, peepContent) {
-  console.log(sessionKey);
   return (dispatch) => {
     dispatch(attemptPost());
     return fetch('https://chitter-backend-api.herokuapp.com/peeps', {
