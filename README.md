@@ -1,5 +1,13 @@
 # Chitter Frontend
 
+A react front end for a twitter-like API.
+
+Users can sign up, sign in and post peeps. They can also see the last 50 peeps posted.
+
+## Technologies
+
+This app was built using React and Redux. Redux is a state manager and is great. Redux made this app so much easier to make, and I found it really helpful to organise my thoughts around where state was, where it should be, and how to move state from component to component in a scaleable way.
+
 ## Usage
 
 Clone the app and run `npm start`. Then go to `localhost:3000` and watch in wonder as the refresh button refreshes the chitter feed. That's it though.
