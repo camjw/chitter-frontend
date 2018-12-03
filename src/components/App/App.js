@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ChitterFeed from '../ChitterFeed';
 import UserSignUpContainer from '../../containers/UserSignUpContainer';
 import UserSignInContainer from '../../containers/UserSignInContainer';
+import PostPeepContainer from '../../containers/PostPeepContainer';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -35,7 +36,7 @@ export default class App extends React.Component {
             <div className="row">
               <h1>Chitter</h1>
             </div>
-            {this.props.currentUser && this.props.currentUserID
+            {this.props.currentUserID
               && (
                 <h4>
                   {' '}
@@ -85,6 +86,9 @@ export default class App extends React.Component {
                 }
               </div>
               )
+            }
+            {this.props.currentUserID &&
+              <PostPeepContainer />
             }
           </div>
           <div className="col-sm-6">

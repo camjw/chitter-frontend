@@ -24,7 +24,7 @@ export const signedInUser = userData => ({
   type: SIGNED_IN_USER,
   isCreating: false,
   currentUserID: userData.user_id,
-  sessionKey: userData.session_key,
+  currentSession: userData.session_key,
 });
 
 export const takenHandle = () => ({
@@ -74,12 +74,13 @@ export function signInUser(handle, password) {
       if (!response.ok) {
         dispatch(incorrectSignIn())
         throw Error(response.statusText)
+      } else {
+        return response.json()
       }
     })
-      .then(response => response.json())
       .then((json) => {
         dispatch(signedInUser(json));
       })
-      .catch(error => error );
+      .catch(error => error);
   };
 }

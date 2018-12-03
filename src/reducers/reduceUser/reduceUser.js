@@ -25,6 +25,7 @@ export default function reduceUser(state = [], action) {
         isCreating: action.isCreating,
         signedIn: true,
         currentUserID: action.currentUserID,
+        currentSession: action.currentSession,
         currentUser: state.currentUser,
       };
     case userActions.ATTEMPT_SIGN_IN:
